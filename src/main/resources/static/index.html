@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusOps | Campus Management</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <section id="loginPage" class="login-page">
+        <div class="login-card">
+            <h1>Campus<span>Ops</span></h1>
+            <p>Campus Operations Management System</p>
+
+            <form id="loginForm">
+                <label>Username</label>
+                <input type="text" id="username" placeholder="Enter username" required>
+
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter password" required>
+
+                <button type="submit">Sign In</button>
+                <p id="loginMessage"></p>
+            </form>
+        </div>
+    </section>
+
+    <section id="dashboardPage" class="dashboard hidden">
+
+        <aside class="sidebar">
+            <h2>Campus<span>Ops</span></h2>
+
+            <nav>
+                <button data-section="overview">Dashboard</button>
+                <button data-section="bookings">Facility Bookings</button>
+                <button data-section="maintenance">Maintenance</button>
+                <button data-section="audit">Audit History</button>
+            </nav>
+
+            <button id="logoutButton" class="logout-button">Logout</button>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <h1 id="pageTitle">Dashboard</h1>
+                    <p>Campus Operations Management</p>
+                </div>
+                <div id="userInfo"></div>
+            </header>
+
+            <section id="overviewSection" class="content-section">
+                <h2>Welcome to CampusOps</h2>
+                <p>Manage campus facilities and maintenance activities.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Facilities</h3>
+                        <p id="facilityCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>My Bookings</h3>
+                        <p id="bookingCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Maintenance Tickets</h3>
+                        <p id="ticketCount">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="bookingsSection" class="content-section hidden">
+                <h2>Facility Bookings</h2>
+
+                <div id="bookingFormContainer">
+                    <h3>Request a Facility</h3>
+
+                    <form id="bookingForm">
+                        <label>Select Facility</label>
+                        <select id="facilityId" required>
+                            <option value="">Choose facility</option>
+                        </select>
+
+                        <label>Start Time</label>
+                        <input type="datetime-local" id="startTime" required>
+
+                        <label>End Time</label>
+                        <input type="datetime-local" id="endTime" required>
+
+                        <label>Purpose</label>
+                        <textarea id="bookingPurpose" required></textarea>
+
+                        <button type="submit">Submit Booking</button>
+                    </form>
+                </div>
+
+                <h3>Booking Records</h3>
+                <div id="bookingList"></div>
+            </section>
+
+            <section id="maintenanceSection" class="content-section hidden">
+                <h2>Maintenance Management</h2>
+
+                <div id="ticketFormContainer">
+                    <h3>Report a Maintenance Issue</h3>
+
+                    <form id="ticketForm">
+                        <label>Facility</label>
+                        <select id="ticketFacilityId" required>
+                            <option value="">Choose facility</option>
+                        </select>
+
+                        <label>Issue Title</label>
+                        <input type="text" id="ticketTitle" required>
+
+                        <label>Description</label>
+                        <textarea id="ticketDescription" required></textarea>
+
+                        <button type="submit">Submit Maintenance Ticket</button>
+                    </form>
+                </div>
+
+                <h3>Maintenance Records</h3>
+                <div id="ticketList"></div>
+            </section>
+
+            <section id="auditSection" class="content-section hidden">
+                <h2>Audit History</h2>
+                <p>Track important actions performed in CampusOps.</p>
+                <div id="auditList"></div>
+            </section>
+
+            <div id="notification" class="notification"></div>
+
+        </main>
+    </section>
+
+    <script src="/js/app.js?v=20261115"></script>
+</body>
+</html>
